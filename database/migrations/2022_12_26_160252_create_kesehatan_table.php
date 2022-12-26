@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('administrasi', function (Blueprint $table) {
+        Schema::create('kesehatan', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->uuid('id_seksi_konservasi')->unsigned();
-            $table->string('nomor_surat', 50);
-            $table->bigInteger('id_jenis_surat')->unsigned();
-            $table->string('judul', 50);
-            $table->text('deskripsi');
-            $table->text('file');
-            $table->uuid('id_pemilik')->unsigned();
             $table->uuid('id_rusa')->unsigned();
-            $table->enum('status', [1, 2, 3, 4, 5]);
+            $table->string('penyakit', 50);
+            $table->string('jenis_penyakit', 50);
+            $table->string('penanganan');
+            $table->string('obat');
+            $table->uuid('id_pengurus')->unsigned();
             $table->timestamps();
         });
     }
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administrasi');
+        Schema::dropIfExists('kesehatan');
     }
 };

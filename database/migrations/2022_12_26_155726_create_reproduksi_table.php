@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reproduksi', function (Blueprint $table) {
-            $table->id();
+            $table->uuid()->primary();
             $table->uuid('id_jantan')->unsigned();
             $table->uuid('id_betina')->unsigned();
             $table->uuid('id_anak')->unsigned();
             $table->enum('status', [1, 2, 3]);
             $table->date('tanggal');
+            $table->uuid('id_pengurus')->unsigned();
             $table->timestamps();
         });
     }
