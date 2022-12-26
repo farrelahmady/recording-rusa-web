@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid()->primary();
             $table->uuid('id_seksi_konservasi');
             $table->string('nomor_surat', 50);
-            $table->bigInteger('id_jenis_surat');
+            $table->bigInteger('id_jenis_surat')->unsigned();
             $table->string('judul', 50);
             $table->text('deskripsi');
             $table->text('file');
