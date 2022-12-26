@@ -15,7 +15,7 @@ class Pengurus extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $table = 'pemilik';
+    protected $table = 'pengurus';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
     protected $keyType = 'string';
@@ -24,6 +24,8 @@ class Pengurus extends Model
     protected $casts = [
         'id' => 'string',
         'no_telp' => 'string',
+        'id_role' => 'integer',
+        'id_penangkaran' => 'string',
     ];
 
     //* Attribute Accessors & Mutators
@@ -65,12 +67,12 @@ class Pengurus extends Model
     }
 
     //* Relationships
-    public function recordingKesehatan()
+    public function kesehatan()
     {
         return $this->hasMany(Kesehatan::class, 'id_pengurus');
     }
 
-    public function recordingReproduksi()
+    public function reproduksi()
     {
         return $this->hasMany(Reproduksi::class, 'id_pengurus');
     }

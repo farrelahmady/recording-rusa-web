@@ -21,7 +21,7 @@ return new class extends Migration
             $table->uuid('id_pemilik');
             $table->uuid('id_penangkaran');
             $table->string('nama', 50);
-            $table->string('jenis_kelamin', 50);
+            $table->enum('jenis_kelamin', [1, 2]);
             $table->uuid('induk_jantan');
             $table->uuid('induk_betina');
             $table->date('tanggal_lahir');

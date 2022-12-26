@@ -12,7 +12,7 @@ class SeksiKonservasi extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $table = 'pemilik';
+    protected $table = 'seksi_konservasi';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
     protected $keyType = 'string';
