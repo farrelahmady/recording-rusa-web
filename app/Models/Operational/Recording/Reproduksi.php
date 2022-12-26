@@ -2,10 +2,69 @@
 
 namespace App\Models\Operational\Recording;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User\Pengurus;
+use App\Models\Operational\Rusa;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reproduksi extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $table = 'reproduksi';
+    protected $guarded = ['id'];
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    protected $casts = [
+        'id' => 'string',
+        'id_jantan' => 'string',
+        'id_betina' => 'string',
+        'id_anak' => 'string',
+        'id_pengurus' => 'string',
+        'tanggal' => 'date:Y-m-d'
+    ];
+
+    //* Attribute Accessors & Mutators
+    protected function status(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                switch ($value) {
+                    case 1:
+                        return 'MENGANDUNG';
+                        break;
+                    case 2:
+                        return 'MELAHIRKAN';
+                        break;
+                    default:
+                        return 'GAGAL';
+                        break;
+                }
+            },
+            set: fn ($value) => (int) $value,
+        );
+    }
+
+    //* Relationships
+    public function pejantan()
+    {
+        return $this->belongsTo(Rusa::class, 'id_jantan');
+    }
+
+    public function betina()
+    {
+        return $this->belongsTo(Rusa::class, 'id_betina');
+    }
+
+    public function anak()
+    {
+        return $this->belongsTo(Rusa::class, 'id_anak');
+    }
+
+    public function pengurus()
+    {
+        return $this->belongsTo(Pengurus::class, 'id_pengurus');
+    }
 }
