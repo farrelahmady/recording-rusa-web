@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penangkaran', function (Blueprint $table) {
+        Schema::create('pengurus', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->string('nama', 50);
+            $table->uuid('id_penangkaran')->unsigned();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('nama_depan', 50);
+            $table->string('nama_belakang', 50)->nullable();
+            $table->string('no_telp', 15);
             $table->text('alamat');
-            $table->uuid('id_pemilik')->unsigned();
+            $table->bigInteger('id_role')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penangkaran');
+        Schema::dropIfExists('pengurus');
     }
 };
