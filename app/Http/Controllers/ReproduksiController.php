@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operational\Recording\Reproduksi;
-use Illuminate\Http\Request;
+use App\Http\Requests\Reproduksi\StoreReproduksiRequest as StoreRequest;
+use App\Http\Requests\Reproduksi\UpdateReproduksiRequest as UpdateRequest;
 
 class ReproduksiController extends Controller
 {
@@ -33,7 +34,7 @@ class ReproduksiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class ReproduksiController extends Controller
      * @param  \App\Models\Operational\Recording\Reproduksi  $reproduksi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reproduksi $reproduksi)
+    public function update(UpdateRequest $request, Reproduksi $reproduksi)
     {
         //
     }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operational\Recording\Administrasi;
-use Illuminate\Http\Request;
+use App\Http\Requests\Administrasi\StoreAdministrasiRequest as StoreRequest;
+use App\Http\Requests\Administrasi\UpdateAdministrasiRequest as UpdateRequest;
 
 class AdministrasiController extends Controller
 {
@@ -33,7 +34,7 @@ class AdministrasiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class AdministrasiController extends Controller
      * @param  \App\Models\Operational\Recording\Administrasi  $administrasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrasi $administrasi)
+    public function update(UpdateRequest $request, Administrasi $administrasi)
     {
         //
     }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operational\Recording\Kesehatan;
-use Illuminate\Http\Request;
+use App\Http\Requests\Kesehatan\StoreKesehatanRequest as StoreRequest;
+use App\Http\Requests\Kesehatan\UpdateKesehatanRequest as UpdateRequest;
 
 class KesehatanController extends Controller
 {
@@ -33,7 +34,7 @@ class KesehatanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class KesehatanController extends Controller
      * @param  \App\Models\Operational\Recording\Kesehatan  $kesehatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kesehatan $kesehatan)
+    public function update(UpdateRequest $request, Kesehatan $kesehatan)
     {
         //
     }
