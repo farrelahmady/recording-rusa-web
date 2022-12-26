@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('kesehatan', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->uuid('id_rusa')->unsigned();
+            $table->uuid('id_rusa');
             $table->string('penyakit', 50);
             $table->string('jenis_penyakit', 50);
             $table->string('penanganan');
             $table->string('obat');
-            $table->uuid('id_pengurus')->unsigned();
+            $table->uuid('id_pengurus');
             $table->timestamps();
         });
     }

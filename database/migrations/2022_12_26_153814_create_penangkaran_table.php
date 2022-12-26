@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid()->primary();
             $table->string('nama', 50);
             $table->text('alamat');
-            $table->uuid('id_pemilik')->unsigned();
+            $table->uuid('id_pemilik');
             $table->timestamps();
         });
     }

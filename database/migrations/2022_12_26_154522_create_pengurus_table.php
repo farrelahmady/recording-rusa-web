@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('pengurus', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->uuid('id_penangkaran')->unsigned();
+            $table->uuid('id_penangkaran');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('nama_depan', 50);
             $table->string('nama_belakang', 50)->nullable();
             $table->string('no_telp', 15);
             $table->text('alamat');
-            $table->bigInteger('id_role')->unsigned();
+            $table->bigInteger('id_role');
             $table->timestamps();
         });
     }

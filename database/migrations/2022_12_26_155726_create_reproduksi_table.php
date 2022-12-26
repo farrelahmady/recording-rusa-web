@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('reproduksi', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->uuid('id_jantan')->unsigned();
-            $table->uuid('id_betina')->unsigned();
-            $table->uuid('id_anak')->unsigned();
+            $table->uuid('id_jantan');
+            $table->uuid('id_betina');
+            $table->uuid('id_anak');
             $table->enum('status', [1, 2, 3]);
             $table->date('tanggal');
-            $table->uuid('id_pengurus')->unsigned();
+            $table->uuid('id_pengurus');
             $table->timestamps();
         });
     }
