@@ -2,8 +2,11 @@
 
 namespace App\Models\Operational;
 
+use App\Models\User\Pengurus;
+use App\Models\Operational\Rusa;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ManagementAccess\Pemilik;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -19,6 +22,23 @@ class Penangkaran extends Model
         'id' => 'string',
         'id_pemilik' => 'string',
     ];
+
+    //* Attribute Accessors & Mutators
+    protected function nama(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtoupper($value),
+            set: fn ($value) => strtoupper($value),
+        );
+    }
+
+    protected function alamat(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => ucwords($value),
+        );
+    }
 
     //* Relationships
     public function pemilik()

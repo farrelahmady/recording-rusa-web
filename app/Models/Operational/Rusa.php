@@ -22,14 +22,7 @@ class Rusa extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     protected $with = [
-        'indukJantan',
-        'indukBetina',
-        'pemilik',
-        'penangkaran',
         'foto',
-        'administrasi',
-        'kesehatan',
-        'reproduksi',
     ];
     protected $casts = [
         'id' => 'string',

@@ -53,8 +53,8 @@ class Pemilik extends Model
     protected function alamat(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => strtoupper($value),
-            set: fn ($value) => strtoupper($value),
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => ucwords($value),
         );
     }
 
