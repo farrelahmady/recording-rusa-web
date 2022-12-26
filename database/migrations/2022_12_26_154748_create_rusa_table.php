@@ -18,15 +18,15 @@ return new class extends Migration
             $table->string('no_satwa', 50);
             $table->string('kode_satwa', 50);
             $table->string('id_tag', 50);
-            $table->uuid('id_pemilik');
+            $table->uuid('id_pemilik')->nullable();
             $table->uuid('id_penangkaran');
             $table->string('nama', 50);
             $table->enum('jenis_kelamin', [1, 2]);
-            $table->uuid('induk_jantan');
-            $table->uuid('induk_betina');
-            $table->date('tanggal_lahir');
-            $table->integer('status_gen');
-            $table->text('ciri_khusus');
+            $table->uuid('induk_jantan')->nullable();
+            $table->uuid('induk_betina')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->integer('status_gen')->default(0);
+            $table->text('ciri_khusus')->nullable();
             $table->timestamps();
         });
     }

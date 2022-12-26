@@ -5,7 +5,7 @@ namespace App\Models\Operational;
 use App\Models\User\Pengurus;
 use App\Models\Operational\Rusa;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ManagementAccess\Pemilik;
+use App\Models\User\Pemilik;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

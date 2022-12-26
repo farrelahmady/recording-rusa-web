@@ -4,6 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\RusaSeeder;
+use Database\Seeders\PemilikSeeder;
+use Database\Seeders\PengurusSeeder;
+use Database\Seeders\PenangkaranSeeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +20,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        foreach (Storage::allDirectories('public') as $dir) {
+            Storage::deleteDirectory($dir);
+        }
+
         $this->call([
             RoleSeeder::class,
 
@@ -21,6 +31,9 @@ class DatabaseSeeder extends Seeder
             PenangkaranSeeder::class,
 
             PengurusSeeder::class,
+
+            RusaSeeder::class,
+            FotoRusaSeeder::class,
         ]);
     }
 }
