@@ -2,8 +2,11 @@
 
 namespace App\Models\User;
 
+use App\Models\Operational\Rusa;
+use App\Models\Operational\Penangkaran;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Operational\Recording\Administrasi;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
