@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nama_depan', 50);
             $table->string('nama_belakang', 50)->nullable();
-            $table->string('no_telp', 15);
+            $table->string('no_telp');
             $table->text('alamat');
             $table->bigInteger('id_role')->unsigned();
             $table->timestamps();

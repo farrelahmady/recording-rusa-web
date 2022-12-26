@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User\Pemilik;
 use Illuminate\Database\Seeder;
+use App\Models\Operational\Penangkaran;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PenangkaranSeeder extends Seeder
 {
@@ -14,6 +16,12 @@ class PenangkaranSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = fake("id_ID");
+
+        Penangkaran::create([
+            "nama" => $faker->company,
+            "alamat" => $faker->address,
+            "id_pemilik" => Pemilik::first()->id,
+        ]);
     }
 }

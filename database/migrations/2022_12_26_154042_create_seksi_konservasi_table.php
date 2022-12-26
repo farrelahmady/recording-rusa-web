@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nama_depan_ketua', 50);
             $table->string('nama_belakang_ketua', 50)->nullable();
             $table->integer('wilayah');
-            $table->string('no_telp', 15);
+            $table->string('no_telp');
             $table->text('alamat');
             $table->timestamps();
         });
