@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Operational\Rusa;
-use Illuminate\Http\Request;
+use App\Http\Requests\Rusa\StoreRusaRequest as StoreRequest;
+use App\Http\Requests\Rusa\UpdateRusaRequest as UpdateRequest;
 
 class RusaController extends Controller
 {
@@ -24,7 +25,7 @@ class RusaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
@@ -47,7 +48,7 @@ class RusaController extends Controller
      * @param  \App\Models\Operational\Rusa  $rusa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rusa $rusa)
+    public function update(UpdateRequest $request, Rusa $rusa)
     {
         //
     }
