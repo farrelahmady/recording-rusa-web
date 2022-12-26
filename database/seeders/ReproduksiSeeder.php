@@ -28,7 +28,7 @@ class ReproduksiSeeder extends Seeder
                 "id_jantan" => $rusa->induk_jantan,
                 "id_betina" => $rusa->induk_betina,
                 "id_anak" => $rusa->id,
-                "status" => 3,
+                "status" => 2,
                 "tanggal" => $rusa->tanggal_lahir,
                 "id_pengurus" => Pengurus::first()->id,
             ]);

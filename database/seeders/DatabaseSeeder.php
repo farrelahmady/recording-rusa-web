@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\MasterData\JenisSurat;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\RusaSeeder;
@@ -26,16 +28,22 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             RoleSeeder::class,
+            PermissionSeeder::class,
+            JenisSuratSeeder::class,
 
             PemilikSeeder::class,
             PenangkaranSeeder::class,
+            SeksiKonservasiSeeder::class,
 
             PengurusSeeder::class,
 
             RusaSeeder::class,
-            FotoRusaSeeder::class,
+            // FotoRusaSeeder::class,
 
             ReproduksiSeeder::class,
+            KesehatanSeeder::class,
+            AdministrasiSeeder::class,
+
         ]);
     }
 }
