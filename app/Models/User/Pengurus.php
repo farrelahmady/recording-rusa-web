@@ -2,10 +2,86 @@
 
 namespace App\Models\User;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Operational\Penangkaran;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ManagementAccess\RolePengurus;
+use App\Models\Operational\Recording\Kesehatan;
+use App\Models\Operational\Recording\Reproduksi;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pengurus extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $table = 'pemilik';
+    protected $guarded = ['id'];
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    protected $hidden = ['password'];
+    protected $appends = ['nama'];
+    protected $casts = [
+        'id' => 'string',
+        'no_telp' => 'string',
+    ];
+
+    //* Attribute Accessors & Mutators
+    protected function email(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtolower($value),
+            set: fn ($value) => strtolower($value),
+        );
+    }
+
+    protected function namaDepan(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtoupper($value),
+            set: fn ($value) => strtoupper($value),
+        );
+    }
+
+    protected function namaBelakang(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtoupper($value),
+            set: fn ($value) => strtoupper($value),
+        );
+    }
+
+    protected function alamat(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtoupper($value),
+            set: fn ($value) => strtoupper($value),
+        );
+    }
+
+    public function getNamaAttribute(): string
+    {
+        return "{$this->nama_depan} {$this->nama_belakang}";
+    }
+
+    //* Relationships
+    public function recordingKesehatan()
+    {
+        return $this->hasMany(Kesehatan::class, 'id_pengurus');
+    }
+
+    public function recordingReproduksi()
+    {
+        return $this->hasMany(Reproduksi::class, 'id_pengurus');
+    }
+
+    public function penangkaran()
+    {
+        return $this->belongsTo(Penangkaran::class, 'id_penangkaran');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(RolePengurus::class, 'id_role');
+    }
 }

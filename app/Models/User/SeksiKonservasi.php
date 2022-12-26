@@ -4,6 +4,7 @@ namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Operational\Recording\Administrasi;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -62,18 +63,8 @@ class SeksiKonservasi extends Model
     }
 
     //* Relationships
-    public function rusa()
-    {
-        return $this->hasMany(Rusa::class, 'id_pemilik');
-    }
-
-    public function penangkaran()
-    {
-        return $this->hasMany(Penangkaran::class, 'id_pemilik');
-    }
-
     public function administrasi()
     {
-        return $this->hasMany(Administrasi::class, 'id_pemilik');
+        return $this->hasMany(Administrasi::class, 'id_seksi_konservasi');
     }
 }
