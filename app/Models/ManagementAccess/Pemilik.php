@@ -16,6 +16,7 @@ class Pemilik extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     protected $hidden = ['password'];
+    protected $appends = ['nama'];
     protected $casts = [
         'id' => 'string',
         'no_telp' => 'string',
@@ -52,6 +53,11 @@ class Pemilik extends Model
             get: fn ($value) => strtoupper($value),
             set: fn ($value) => strtoupper($value),
         );
+    }
+
+    public function getNamaAttribute(): string
+    {
+        return "{$this->nama_depan} {$this->nama_belakang}";
     }
 
     //* Relationships
