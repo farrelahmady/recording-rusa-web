@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
 
             RusaSeeder::class,
             FotoRusaSeeder::class,
+
+            ReproduksiSeeder::class,
         ]);
     }
 }
