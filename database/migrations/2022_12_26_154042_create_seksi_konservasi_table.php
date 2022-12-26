@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('nama_depan_ketua', 50);
-            $table->string('nama_belakang_belakang', 50)->nullable();
+            $table->string('nama_belakang_ketua', 50)->nullable();
             $table->integer('wilayah');
             $table->string('no_telp', 15);
             $table->text('alamat');
