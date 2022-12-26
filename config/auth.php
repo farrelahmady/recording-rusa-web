@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'pemilik' => [
+            'driver' => 'session',
+            'provider' => 'pemilik',
+        ],
+        'pengurus' => [
+            'driver' => 'session',
+            'provider' => 'pengurus',
+        ],
+        'seksiKonservasi' => [
+            'driver' => 'session',
+            'provider' => 'seksiKonservasi',
+        ],
     ],
 
     /*
@@ -63,6 +75,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'pemilik' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User\Pemilik::class,
+        ],
+        'pengurus' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User\Pengurus::class,
+        ],
+        'seksiKonservasi' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User\SeksiKonservasi::class,
         ],
 
         // 'users' => [
