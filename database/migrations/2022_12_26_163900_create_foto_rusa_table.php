@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('foto_rusa', function (Blueprint $table) {
             $table->uuid()->primary();
             $table->foreignUuid('id_rusa')->constrained('rusa')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->text('url');
+            $table->text('foto');
             $table->timestamps();
         });
     }
