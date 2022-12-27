@@ -59,6 +59,16 @@ class SeksiKonservasi extends Authenticatable
         );
     }
 
+    protected function noTelp(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
+                $value = $value[0] == "0" ? substr_replace($value, "+62", 0, 1) : $value;
+                return str_replace(array('(', ')', ' '), '', $value);
+            },
+        );
+    }
+
     public function getKetuaAttribute(): string
     {
         return "{$this->nama_depan_ketua} {$this->nama_belakang_ketua}";
