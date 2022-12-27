@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\Operational\Recording\Administrasi;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class SeksiKonservasi extends Model
+class SeksiKonservasi extends Authenticatable
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, HasApiTokens;
 
     protected $table = 'seksi_konservasi';
     protected $guarded = ['id'];

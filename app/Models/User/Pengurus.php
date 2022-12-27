@@ -10,10 +10,12 @@ use App\Models\Operational\Recording\Reproduksi;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Pengurus extends Model
+class Pengurus extends Authenticatable
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, HasApiTokens;
 
     protected $table = 'pengurus';
     protected $guarded = ['id'];

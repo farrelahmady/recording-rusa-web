@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\Operational\Recording\Administrasi;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Pemilik extends Model
+class Pemilik extends Authenticatable
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, HasApiTokens;
 
     protected $table = 'pemilik';
     protected $guarded = ['id'];
