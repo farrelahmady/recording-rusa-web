@@ -16,7 +16,17 @@ class RusaController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $rusa = Rusa::with(["indukJantan", "indukBetina", "foto"])->get()->append(['recording']);
+            return response()->json([
+                'message' => 'Success',
+                'data' => $rusa,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => app()->environment('production') ? 'Internal Server Error' : $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**

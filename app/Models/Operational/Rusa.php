@@ -93,6 +93,15 @@ class Rusa extends Model
         );
     }
 
+    public function getRecordingAttribute()
+    {
+        return [
+            "kesehatan" => Kesehatan::where('id_rusa', $this->id)->get(),
+            "administrasi" => Administrasi::where('id_rusa', $this->id)->get(),
+            "reproduksi" => Reproduksi::where('id_jantan', $this->id)->orWhere('id_betina', $this->id)->orWhere('id_anak', $this->id)->get(),
+        ];
+    }
+
     //* Relationships
     public function pemilik()
     {
@@ -124,9 +133,20 @@ class Rusa extends Model
         return $this->hasMany(Administrasi::class, 'id_rusa');
     }
 
-    public function reproduksi()
+
+    public function reproduksiIndukJantan()
     {
-        return $this->hasMany(Reproduksi::class, 'id_jantan') || $this->hasMany(Reproduksi::class, 'id_betina') || $this->hasMany(Reproduksi::class, 'id_anak');
+        return $this->hasMany(Reproduksi::class, 'id_jantan');
+    }
+
+    public function reproduksiIndukBetina()
+    {
+        return $this->hasMany(Reproduksi::class, 'id_betina');
+    }
+
+    public function reproduksiAnak()
+    {
+        return $this->hasMany(Reproduksi::class, 'id_anak');
     }
 
     public function kesehatan()

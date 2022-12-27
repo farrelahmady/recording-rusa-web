@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             PengurusSeeder::class,
 
             RusaSeeder::class,
-            // FotoRusaSeeder::class,
+            FotoRusaSeeder::class,
 
             ReproduksiSeeder::class,
             KesehatanSeeder::class,
