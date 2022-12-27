@@ -25,8 +25,9 @@ use App\Http\Controllers\API\ReproduksiController;
 Route::prefix('pengurus')->controller(PengurusController::class)->group(function () {
     Route::post('login', 'login');
 });
+Route::resource('rusa', RusaController::class)->middleware('auth:sanctum');
 Route::apiResources([
-    'rusa' => RusaController::class,
+    // 'rusa' => RusaController::class,
     'kesehatan' => KesehatanController::class,
     'reproduksi' => ReproduksiController::class,
 ]);

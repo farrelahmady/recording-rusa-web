@@ -17,10 +17,15 @@ class RusaController extends Controller
     public function index()
     {
         try {
-            $rusa = Rusa::with(["indukJantan", "indukBetina", "foto"])->get()->append(['recording']);
+            $user = auth()->user();
+            $penangkaran = $user->penangkaran;
+            $rusa = Rusa::with(["indukJantan", "indukBetina", "foto"])->where("id_penangkaran", $penangkaran->id)->get()->append(['recording']);
             return response()->json([
                 'message' => 'Success',
-                'data' => $rusa,
+                'data' => [
+                    'count' => $rusa->count(),
+                    'payload' => $rusa,
+                ],
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
