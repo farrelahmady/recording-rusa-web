@@ -25,7 +25,7 @@ class PengurusController extends Controller
 
         $credentials = request(['email', 'password']);
 
-        if (!auth()->attempt($credentials)) {
+        if (!auth("pengurus")->attempt($credentials)) {
             return response()->json([
                 'message' => 'Unauthorized',
             ], 401);
